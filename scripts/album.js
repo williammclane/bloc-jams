@@ -30,6 +30,20 @@
      ]
  };
 
+ var albumFruit = {
+     title: 'The Fruits',
+     artist: 'Me of Me',
+     label: 'Toll',
+     year: '2016',
+     albumArtUrl: 'assets/images/album_covers/04.png',
+     songs: [
+         { title: 'Strawberry', duration: '4:05' },
+         { title: 'Banana', duration: '2:07' },
+         { title: 'Apple', duration: '6:35'},
+         { title: 'Pear', duration: '2:50' },
+         { title: 'Grape', duration: '3:45'}
+     ]
+ };
 
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
@@ -42,16 +56,14 @@ var createSongRow = function(songNumber, songName, songLength) {
  
      return template;
  };
-
- var setCurrentAlbum = function(album) {
-     // #1
      var albumTitle = document.getElementsByClassName('album-view-title')[0];
      var albumArtist = document.getElementsByClassName('album-view-artist')[0];
      var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
      var albumImage = document.getElementsByClassName('album-cover-art')[0];
      var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
- 
-     // #2
+
+ var setCurrentAlbum = function(album) {
+
      albumTitle.firstChild.nodeValue = album.title;
      albumArtist.firstChild.nodeValue = album.artist;
      albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
@@ -68,4 +80,15 @@ var createSongRow = function(songNumber, songName, songLength) {
  
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
- };
+ 
+
+    var albumArray = [albumPicasso, albumMarconi, albumFruit];
+    var index = 0;
+    albumImage.addEventListener("click", function(event) {
+        setCurrentAlbum(albumArray[index]);
+        index++;
+        if(index == albumArray.length){
+        index = 0;
+    }
+    });
+};
