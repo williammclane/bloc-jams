@@ -78,7 +78,7 @@ var createSongRow = function(songNumber, songName, songLength) {
      }
  };
 var findParentByClassName = function(element, targetClass) {
-
+    if (element.parentElement != null) {
     if (element) {
 
         var currentParent = element.parentElement;
@@ -91,8 +91,12 @@ var findParentByClassName = function(element, targetClass) {
 
         return currentParent;
 
+    } else if (element.parentElement.className == null) {
+        console.log("No parent found with that class name")
+    } else {
+        console.log("No parent found");
     }
-
+    }
 };
 var getSongItem = function(element) {
 
