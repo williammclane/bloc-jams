@@ -78,26 +78,32 @@ var createSongRow = function(songNumber, songName, songLength) {
      }
  };
 var findParentByClassName = function(element, targetClass) {
-    if (element.parentElement != null) {
+    
     if (element) {
-
+        
         var currentParent = element.parentElement;
-
+        
+    } 
+    
         while (currentParent.className !== targetClass && currentParent.className !== null) {
-
+        
             currentParent = currentParent.parentElement;
 
         }
-
+        if (currentParent.className !== targetClass) {
+        
+        console.log("No parent found with that class name")
+        
+    }   if (currentParent == null) {
+        
+        console.log("No parent found");
+        
+    }
         return currentParent;
 
-    } else if (element.parentElement.className == null) {
-        console.log("No parent found with that class name")
-    } else {
-        console.log("No parent found");
-    }
-    }
-};
+
+    };
+
 var getSongItem = function(element) {
 
     switch (element.className) {
@@ -183,7 +189,7 @@ var getSongItem = function(element) {
          });
      }
     var albumArray = [albumPicasso, albumMarconi, albumFruit];
-    var index = 0;
+    var index = 1;
     albumImage.addEventListener("click", function(event) {
         setCurrentAlbum(albumArray[index]);
         index++;
