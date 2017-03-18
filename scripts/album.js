@@ -179,7 +179,7 @@ var getSongItem = function(element) {
          });
      }
     var albumArray = [albumPicasso, albumMarconi, albumFruit];
-    var index = 0;
+    var index = 1;
     albumImage.addEventListener("click", function(event) {
         setCurrentAlbum(albumArray[index]);
         index++;
