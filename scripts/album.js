@@ -53,7 +53,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
         var songNumberCell = $(this).find('.song-item-number');
 
-        var parseInt(songNumber) = songNumberCell.attr('data-song-number');
+        var songNumber = parseInt(songNumberCell.attr('data-song-number'));
 
         if (parseInt(songNumber) !== currentlyPlayingSongNumber) {
 
@@ -69,7 +69,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
         var songNumberCell = $(this).find('.song-item-number');
 
-        var parseInt(songNumber) = songNumberCell.attr('data-song-number');
+        var songNumber = parseInt(songNumberCell.attr('data-song-number'));
 
         if (parseInt(songNumber) !== currentlyPlayingSongNumber) {
 
@@ -86,14 +86,14 @@ var createSongRow = function(songNumber, songName, songLength) {
      return $row;
  };
 
-
+var $albumTitle = $('.album-view-title');
+var $albumArtist = $('.album-view-artist');
+var $albumReleaseInfo = $('.album-view-release-info');
+var $albumImage = $('.album-cover-art');
+var $albumSongList = $('.album-view-song-list');
  var setCurrentAlbum = function(album) {
      currentAlbum = album;
-     var $albumTitle = $('.album-view-title');
-     var $albumArtist = $('.album-view-artist');
-     var $albumReleaseInfo = $('.album-view-release-info');
-     var $albumImage = $('.album-cover-art');
-     var $albumSongList = $('.album-view-song-list');
+     
      
      $albumTitle.text(album.title);
      $albumArtist.text(album.artist);
@@ -143,14 +143,14 @@ var updatePlayerBarSong = function() {
   });
     var albumArray = [albumPicasso, albumMarconi, albumFruit];
     var index = 1;
-    albumImage.addEventListener("click", function(event) {
+    $albumImage.click(function() {
         setCurrentAlbum(albumArray[index]);
         index++;
         if(index == albumArray.length){
         index = 0;
     }
     });
-};
+
 
 var nextSong = function() {
 
