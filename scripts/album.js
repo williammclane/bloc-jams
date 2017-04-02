@@ -163,4 +163,3 @@ var createSongRow = function(songNumber, songName, songLength) {
         index = 0;
     }
     });
-};
