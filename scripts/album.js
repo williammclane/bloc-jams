@@ -55,7 +55,7 @@ var createSongRow = function(songNumber, songName, songLength) {
       ;
  
       var $row = $(template);
-     
+
 
     var clickHandler = function() {
 
