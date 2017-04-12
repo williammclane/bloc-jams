@@ -1,6 +1,6 @@
 var setSong = function(songNumber) {
     currentlyPlayingSongNumber = parseInt(songNumber);
-    currentlySongFromAlbum = currentAlbum.songs[songNumber - 1];
+    currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
 };
 
 var getSongNumberCell = function(number) {
@@ -47,8 +47,9 @@ var createSongRow = function(songNumber, songName, songLength) {
         
         $('.main-controls .play-pause').html(playerBarPlayButton);
 
-		setSong(null);
-
+		currentlyPlayingSongNumber = null;
+        currentSongFromAlbum = null;
+        
 	}
 
 };
@@ -164,7 +165,7 @@ var nextSong = function() {
 
     if (currentSongIndex >= currentAlbum.songs.length) {
 
-        currentSongIndex = 0;
+        currentSongIndex = 1;
 
     }
 
