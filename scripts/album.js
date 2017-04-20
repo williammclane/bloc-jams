@@ -181,7 +181,7 @@ var updatePlayerBarSong = function() {
     }
     });
 
-
+ 
 var nextSong = function() {
 
     var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
@@ -197,9 +197,7 @@ var nextSong = function() {
 
     var lastSongNumber = currentlyPlayingSongNumber;
 
-    currentlyPlayingSongNumber = currentSongIndex + 1;
-
-    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    setSong(currentlyPlayingSongNumber);
 
     updatePlayerBarSong();
 
@@ -228,9 +226,7 @@ var previousSong = function() {
 
     var lastSongNumber = currentlyPlayingSongNumber;
 
-    currentlyPlayingSongNumber = currentSongIndex + 1;
-
-    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    setSong(currentlyPlayingSongNumber);
 
     updatePlayerBarSong();
 
