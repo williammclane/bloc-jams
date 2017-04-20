@@ -182,41 +182,36 @@ var updatePlayerBarSong = function() {
     });
 
  
+
 var nextSong = function() {
 
     var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
-
     currentSongIndex++;
-    currentSoundFile.play();
 
     if (currentSongIndex >= currentAlbum.songs.length) {
-
         currentSongIndex = 0;
-
     }
 
     var lastSongNumber = currentlyPlayingSongNumber;
 
-    setSong(currentlyPlayingSongNumber);
+    setSong(currentSongIndex + 1);
+    currentSoundFile.play();
 
     updatePlayerBarSong();
 
-    var $nextSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
+    var $nextSongNumberCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
 
-    var $lastSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
+    var $lastSongNumberCell = $('.song-item-number[data-song-number="' + lastSongNumber + '"]');
 
     $nextSongNumberCell.html(pauseButtonTemplate);
 
     $lastSongNumberCell.html(lastSongNumber);
 
 };
-
 var previousSong = function() {
 
     var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
-
     currentSongIndex--;
-    currentSoundFile.play();
 
     if (currentSongIndex < 0) {
 
@@ -226,15 +221,16 @@ var previousSong = function() {
 
     var lastSongNumber = currentlyPlayingSongNumber;
 
-    setSong(currentlyPlayingSongNumber);
+    setSong(currentSongIndex + 1);
+    currentSoundFile.play();
 
     updatePlayerBarSong();
 
     $('.main-controls .play-pause').html(playerBarPauseButton);
 
-    var $previousSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
+    var $previousSongNumberCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
 
-    var $lastSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
+    var $lastSongNumberCell = $('.song-item-number[data-song-number="' + lastSongNumber + '"]');
 
     $previousSongNumberCell.html(pauseButtonTemplate);
 
