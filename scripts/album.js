@@ -161,6 +161,7 @@ var setCurrentAlbum = function(album) {
  
              updateSeekPercentage($seekBar, seekBarFillRatio);
          });
+         
      }
  };
 
